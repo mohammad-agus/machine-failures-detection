@@ -1,0 +1,13 @@
+git clone https://github.com/mohammad-agus/machine-failures-detection-service.git
+input github username
+input personal access token
+
+
+docker build -t machine-failures-detection-service .
+docker images
+
+eb init
+    just use default config
+
+eb create
+    just use default config
