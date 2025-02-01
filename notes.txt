@@ -1,13 +1,26 @@
-git clone https://github.com/mohammad-agus/machine-failures-detection-service.git
-input github username
-input personal access token
+* Install and authenticate gcloud cli (https://cloud.google.com/sdk/docs/install-sdk)
+gcloud auth login
 
 
+* Build Container and Test Locally
+cd machine-failures-detection-service/
 docker build -t machine-failures-detection-service .
-docker images
+docker run -it -p 9696:9696 machine-failures-detection-service
+docker run -it --entrypoint bash machine-failures-detection-service
 
-eb init
-    just use default config
+* Create Artifact Registry Repository
+* Copy the "url_repository"
+* Ensure user or service account has the roles/artifactregistry.writer (https://cloud.google.com/iam/docs/understanding-roles)
 
-eb create
-    just use default config
+
+* Push docker image
+cd machine-failures-detection-service/
+docker tag "url_repository/docker_image_name:version"
+docker push "url_repository/docker_image_name:version"
+
+* Build and push the docker image (if the image has not been created)
+docker build -t "url_repository/docker_image_name:version" .
+docker push "url_repository/docker_image_name:version"
+
+
+* After the docker image has been pushed, go to Cloud Run and choose Deploy Service (https://www.youtube.com/watch?v=cw34KMPSt4k&t=270s)
