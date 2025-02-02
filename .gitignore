@@ -9,4 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-predict_test_cloud.py
+.streamlit/secrets.toml
+

@@ -1,4 +1,5 @@
 import requests
+import streamlit as st
 
 condition = {
     'type': 'l',
@@ -10,7 +11,7 @@ condition = {
     'machine_failure': 0
 }
 
-url = ''
+url = st.secrets['API_url']
 response = requests.post(url=url, json=condition).json()
 
 print(response)
