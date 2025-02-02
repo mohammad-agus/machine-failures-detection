@@ -6,6 +6,9 @@ st.set_page_config("Machine Failure Detection Web App", page_icon="⚙️")
 def main():
     st.title("Machine Failures Detection")
     st.image("images/8Rq0.gif")
+    st.link_button("Go to the github repo for project details",
+                   'https://github.com/mohammad-agus/machine-failures-detection')
+
     try:
         with st.sidebar:
             st.markdown("## Variables:")
@@ -19,12 +22,13 @@ def main():
         )
         st.dataframe(df_input_vars)
         if st.button("Predict", type='primary'):
-            st.write("Please wait..")
-            response = requests.post(url=st.secrets['API_url'], json=input_vars).json()
-            st.write(response)
+            with st.spinner("Please wait, predicting..."):
+                response = requests.post(url=st.secrets['API_url'], json=input_vars).json()
+            st.write(f'**Machine failure**: {response['failure']}')
+            st.write(f'**Probability of failure**: {round(response['failure_probability'], 4)}')
 
     except:
-        pass
+        st.warning("Input all variables!")
 
 
 
@@ -87,7 +91,6 @@ def get_response():
         'tool_wear_min': tool_wear_min
         }
     except:
-        st.warning("Input all variables!")
         pass
 
     return input
