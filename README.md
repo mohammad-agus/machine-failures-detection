@@ -22,7 +22,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 ## **Machine Learning Workflow**
 
 ### **1. Data Collection**
-- Collect raw data from [AI4I 2020 Predictive Maintenance Dataset](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset)
+- Collect raw data from [AI4I 2020 Predictive Maintenance Dataset](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset).
 
 ### **2. Data Exploration, Preprocessing, and Feature Engineering**
 - Perform exploratory data analysis (EDA) using `pandas` and `matplotlib`.
@@ -30,7 +30,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 
 ### **4. Model Training, Validation, and Evaluation**
 - Split the data into training, validation, and test sets.
-- Train multiple classification models (e.g., Logistic Regression, Decision Tree, Random Forest, XGBoost).
+- Train multiple classification models (Logistic Regression, Decision Tree, Random Forest, XGBoost).
 - Tune hyperparameters
 - Evaluate models using the ROC-AUC metric.
 
@@ -39,7 +39,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - Save the trained model using `pickle` for reuse in the API.
 
 > [!Tip]
-> Check out [the project's Jupyter notebook](https://github.com/mohammad-agus/machine-failures-detection/blob/master/project_notebook.ipynb) for the complete code
+> Check out [the project's Jupyter notebook](https://github.com/mohammad-agus/machine-failures-detection/blob/master/project_notebook.ipynb) for the complete code.
 
 
 ## **API Development and Deployment**
