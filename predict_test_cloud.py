@@ -10,7 +10,7 @@ condition = {
     'machine_failure': 0
 }
 
-url = 'https://machine-failures-detection-service-458621374952.us-central1.run.app/predict'
+url = ''
 response = requests.post(url=url, json=condition).json()
 
 print(response)
