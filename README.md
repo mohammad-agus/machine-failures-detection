@@ -1,6 +1,6 @@
 ![Workflow](https://github.com/mohammad-agus/machine-failures-detection/blob/master/images/workflow.gif?raw=true)
 # Description
-This project demonstrates a complete **end-to-end machine learning workflow**, from data preparation and model training to building a **deployment-ready containerized classification model API** to detect the failure of the machine. The API serves predictions from a trained machine learning model and is ready to be deployed to any container orchestration platform.
+This project demonstrates an **end-to-end machine learning workflow**, from data preparation and model training to building a **deployed containerized machine learning model API** to solve classification problem, and in this case is **to detect the failures of the machines**. The API serves predictions from a dockerized trained selected  model and to be deployed to Google Cloud Platform using Artifact Registry and Cloud Run.
 
 ## **Key Features**
 - **End-to-End Workflow**: Covers the data preparation to deployment.
