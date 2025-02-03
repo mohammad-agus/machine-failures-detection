@@ -121,7 +121,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
   print(response)
   ```
 
-### **3. Build A Web App Using Streamlit to Demonstrate the Deployed API**
+### **3. Build A Web App Using Streamlit**
 - Save the API url to [`.streamlit/secrets.toml`](https://docs.streamlit.io/develop/concepts/connections/secrets-management) for storing url during development process.
 - Add `.streamlit/secrets.toml` to `.gitignore`.
 - Create [the streamlit app](https://github.com/mohammad-agus/machine-failures-detection/blob/master/streamlit_app.py).
