@@ -13,13 +13,24 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - **Interactive Interface**: Build a Streamlit web app to interact with the deployed API.
 
 ## **Technologies Used**
-- **Python**: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost, Flask, Streamlit.
+- **Python**: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost, Flask, Streamlit, and Jupyter Notebook.
 - **Docker**: Containerization for consistent deployment.
 - **Google Cloud Platform (GCP)**:
   - **Artifact Registry**: Store and manage Docker images.
   - **Cloud Run**: Deploy the API as a serverless container.
-- **UV**: Python dependency management and virtual environment tool.
+- **uv**: Python dependency management and virtual environment tool.
 - **Git**: Version control.
+
+## **Environment Settings**
+- Install pipx (I use WSL for this development process):
+  ```bash
+  sudo apt install pipx
+  ```
+- Install uv
+  ```
+  pipx install uv
+  ```
+- To setting Python version and install libraries explanation, check out `uv` [documentations](https://docs.astral.sh/uv/)
 
 ## **Machine Learning Workflow**
 
