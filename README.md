@@ -13,11 +13,11 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - **Interactive Interface**: Build a Streamlit web app to interact with the deployed API.
 
 ## **Technologies Used**
-- **Python**: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost, Flask, Streamlit, and Jupyter Notebook.
-- **Docker**: Containerization for consistent deployment.
+- **Python**: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost, Flask, Gunicorn, Streamlit, and Jupyter Notebook.
+- **Docker**: Containerization.
 - **Google Cloud Platform (GCP)**:
   - **Artifact Registry**: Store and manage Docker images.
-  - **Cloud Run**: Deploy the API as a serverless container.
+  - **Cloud Run**: Deploy the API as a container.
 - **uv**: Python dependency management and virtual environment tool.
 - **Git**: Version control.
 
