@@ -13,7 +13,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - **Interactive Interface**: Build a Streamlit web app to interact with the deployed API.
 
 ## **Technologies Used**
-- **Python**: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, XGBoost, Flask, Gunicorn, Streamlit, and Jupyter Notebook.
+- **Python**: `numpy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`, `xgboost`, `flask`, `gunicorn`, `streamlit`, and `jupyter notebook`.
 - **Docker**: Containerization.
 - **Google Cloud Platform (GCP)**:
   - **Artifact Registry**: Store and manage Docker images.
@@ -22,11 +22,11 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - **Git**: Version control.
 
 ## **Environment Settings**
-- Install pipx (I use WSL for this development process):
+- Install `pipx` (I use WSL for this development process):
   ```bash
   sudo apt install pipx
   ```
-- Install uv
+- Install `uv`
   ```
   pipx install uv
   ```
