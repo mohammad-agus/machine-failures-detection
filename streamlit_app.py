@@ -3,12 +3,14 @@ import requests
 import pandas as pd
 
 st.set_page_config("Machine Failure Detection Web App", page_icon="⚙️")
+st.image("images/alpha-perspective-Pw5jK6yjJR4-unsplash.jpg")
+st.caption("_Photo by Alpha Perspective on Unsplash_")
+
+
 def main():
     st.title("Machine Failures Detection")
-    st.image("images/8Rq0.gif")
-    st.link_button("Go to the github repo for project details",
-                   'https://github.com/mohammad-agus/machine-failures-detection')
-
+    st.divider()
+    st.markdown("### **Observation that will be predicted:**")
     try:
         with st.sidebar:
             st.markdown("## Variables:")
@@ -22,13 +24,33 @@ def main():
         )
         st.dataframe(df_input_vars)
         if st.button("Predict", type='primary'):
+            st.markdown("### **Prediction:**")
+            
             with st.spinner("Please wait, predicting..."):
                 response = requests.post(url=st.secrets['API_url'], json=input_vars).json()
-            st.write(f'**Machine failure**: {response['failure']}')
-            st.write(f'**Probability of failure**: {round(response['failure_probability'], 4)}')
+            
+            with st.container():
+                st.write(f'**Machine failure**: {response['failure']}')
+                st.write(f'**Probability of failure**: {round(response['failure_probability'], 4)}')
+
+
+
 
     except:
         st.warning("Input all variables!")
+
+    st.write("")
+    st.divider() 
+    st.markdown('### Contact Information')
+    st.markdown(
+    """ 
+    - **Email** : mohammad_agus@outlook.com
+    - **LinkedIn** : [in/moh-agus](https://www.linkedin.com/in/moh-agus/)
+    - **Github** : [mohammad-agus](https://github.com/mohammad-agus)
+
+    Go to the [github repository]('https://github.com/mohammad-agus/machine-failures-detection') for project details!
+    """
+    )
 
 
 
