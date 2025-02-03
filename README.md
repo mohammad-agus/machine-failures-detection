@@ -18,6 +18,8 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - **Google Cloud Platform (GCP)**:
   - **Artifact Registry**: Store and manage Docker images.
   - **Cloud Run**: Deploy the API as a serverless container.
+- **UV**: Python dependency management and virtual environment tool.
+- **Git**: Version control.
 
 ## **Machine Learning Workflow**
 
@@ -113,5 +115,9 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 - Add `.streamlit/secrets.toml` to `.gitignore`.
 - Create [the streamlit app](https://github.com/mohammad-agus/machine-failures-detection/blob/master/streamlit_app.py).
 - Access the API url using [`streamlit.secrets` dict](https://docs.streamlit.io/develop/concepts/connections/secrets-management).
+- Run the streamlit app locally:
+  ```bash
+  streamlit run <streamlit_app_name>.py
+  ```
 - Deploy the streamlit app to [Community Cloud app](https://share.streamlit.io/)(optional).
-- Once the app has deployed in Streamlit Community Cloud App, add the API url to [Advanced Settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) at [the user community cloud workspace](https://share.streamlit.io/).
+- Once the app has deployed in Streamlit Community Cloud App, add the API url to [Advanced Settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) at [the user community cloud workspace](https://share.streamlit.io/) to safely storing the API url.
