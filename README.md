@@ -36,7 +36,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 
 ### **5. Model Selection and Persistence**
 - Select the best-performing model based on evaluation metrics.
-- Save the trained model using `pickle` for reuse in the API.
+- Save the selected model and the trained encoder using `pickle`.
 
 > [!Tip]
 > Check out [the project's Jupyter notebook](https://github.com/mohammad-agus/machine-failures-detection/blob/master/project_notebook.ipynb) for the complete code.
@@ -45,6 +45,13 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 ## **API Development and Deployment**
 
 ### **1. Building & Containerizing the API**
+- Copy the model's binary file into the API development directory.
+- Load the model and the encoder:
+  ```python
+  import pickle
+  with open('saved_model.bin', 'rb') as f:
+      model, encoder = pickle.load(f)
+  ```
 - Build the API using `Flask` & `gunicorn` with a `/predict` endpoint and port `9696`.
 - Test the API locally:
   ```bash
@@ -60,33 +67,45 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
   docker run -it -p 9696:9696 <api-image-name>
   ```
 > [!Tip]
-> - `cd` to [machine-failures-detection-service](https://github.com/mohammad-agus/machine-failures-detection/tree/master/machine-failures-detection-service) for complete API code and Dockerfile.
+> - Go to [machine-failures-detection-service](https://github.com/mohammad-agus/machine-failures-detection/tree/master/machine-failures-detection-service) directory for complete API code and Dockerfile.
 > - Check out this [course](https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/master/05-deployment) for building an API using Flask and containerization.
 
 ### **2. Deploy to GCP**
-1. **Push Docker Image to Artifact Registry**:
-   - Authenticate Docker to GCP:
-     ```bash
-     gcloud auth configure-docker <your-region>-docker.pkg.dev
-     ```
-   - Tag and push the Docker image:
-     ```bash
-     docker tag ml-classification-api <your-region>-docker.pkg.dev/<your-project-id>/<your-repo-name>/ml-classification-api:latest
-     docker push <your-region>-docker.pkg.dev/<your-project-id>/<your-repo-name>/ml-classification-api:latest
-     ```
-
-2. **Deploy to Cloud Run**:
-   - Deploy the containerized API to Cloud Run:
-     ```bash
-     gcloud run deploy ml-classification-api \
-         --image <your-region>-docker.pkg.dev/<your-project-id>/<your-repo-name>/ml-classification-api:latest \
-         --platform managed \
-         --region <your-region> \
-         --allow-unauthenticated
-     ```
-   - Cloud Run will provide a URL for your deployed API.
-
-### **4. Test the Deployed API**
-- Use `curl` or Postman to test the API:
+- Install and authenticate [`gcloud cli`](https://cloud.google.com/sdk/docs/install-sdk).
   ```bash
-  curl -X POST -H "Content-Type: application/json" -d '{"features": [1, 2, 3, 4]}' https://<your-cloud-run-url>/predict
+  gcloud auth login
+  ```
+- Create an [Artifact Registry repository](https://cloud.google.com/artifact-registry/docs).
+- Ensure user or service account has [the roles/artifactregistry.writer](https://cloud.google.com/iam/docs/understanding-roles).
+- Push docker image to Artifact Registry repo.
+  ```bash
+  docker tag <artifact_registry_repo_url>/<api_image_name>:version
+  docker push <artifact_registry_repo_url>/<api_image_name>:version
+  ```
+- Build and push the docker image (if the image has not been created).
+  ```bash
+  cd <api-dir>
+  docker build -t artifact_registry_repo_url/<api_image_name>:version .
+  docker push artifact_registry_repo_url/<api_image_name>:version
+  ```
+- After the docker image has been pushed, go to [Cloud Run and choose Deploy Service](https://cloud.google.com/artifact-registry/docs/integrate-cloud-run) or check out this [tutorial](https://www.youtube.com/watch?v=cw34KMPSt4k&t=270s).
+- Copy the Cloud Run deployed-API url, add `/predict` endpoint, and test the API using `curl` or using below Python script:
+  ```python
+  import requests
+
+  sample = {
+    'type': 'l',
+    'air_temperature_k': 300.5,
+    'process_temperature_k': 309.6,
+    'rotational_speed_rpm': 1390,
+    'torque_nm': 60,  # 48.4,
+    'tool_wear_min': 194,
+    'machine_failure': 0
+  }
+
+  url = 'cloud_run_api_url/predict'
+  response = requests.post(url=url, json=sample).json()
+  print(response)
+  ```
+
+### **3. Build A Web App Using Streamlit to Demonstrate the Deployed API**

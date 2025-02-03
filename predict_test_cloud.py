@@ -1,7 +1,6 @@
 import requests
-import streamlit as st
 
-condition = {
+sample = {
     'type': 'l',
     'air_temperature_k': 300.5,
     'process_temperature_k': 309.6,
