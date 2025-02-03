@@ -30,7 +30,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
   ```
   pipx install uv
   ```
-- To setting Python version and install libraries explanation, check out `uv` [documentations](https://docs.astral.sh/uv/)
+- To setting-up Python version and library installation process, check out `uv` [documentations](https://docs.astral.sh/uv/).
 
 ## **Machine Learning Workflow**
 
