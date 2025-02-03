@@ -132,3 +132,9 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
   ```
 - Deploy the streamlit app to [Community Cloud app](https://share.streamlit.io/)(optional).
 - Once the app has deployed in Streamlit Community Cloud App, add the API url to [Advanced Settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) at [the user community cloud workspace](https://share.streamlit.io/) to safely storing the API url.
+
+
+## **Contact**
+For questions or feedback, please contact:
+- **Moh. Agus**: mohammad_agus@outlook.com
+- **LinkedIn**: [in/moh-agus](https://www.linkedin.com/in/moh-agus/)
