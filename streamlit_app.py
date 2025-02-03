@@ -33,24 +33,24 @@ def main():
                 st.write(f'**Machine failure**: {response['failure']}')
                 st.write(f'**Probability of failure**: {round(response['failure_probability'], 4)}')
 
+            st.write("")
+            st.divider() 
+            st.markdown('### Contact Information')
+            st.markdown(
+            """ 
+            - **Email** : mohammad_agus@outlook.com
+            - **LinkedIn** : [in/moh-agus](https://www.linkedin.com/in/moh-agus/)
+            - **Github** : [mohammad-agus](https://github.com/mohammad-agus)
 
+            Go to the [github repository]('https://github.com/mohammad-agus/machine-failures-detection') for project details!
+            """
+            )
 
 
     except:
         st.warning("Input all variables!")
 
-    st.write("")
-    st.divider() 
-    st.markdown('### Contact Information')
-    st.markdown(
-    """ 
-    - **Email** : mohammad_agus@outlook.com
-    - **LinkedIn** : [in/moh-agus](https://www.linkedin.com/in/moh-agus/)
-    - **Github** : [mohammad-agus](https://github.com/mohammad-agus)
 
-    Go to the [github repository]('https://github.com/mohammad-agus/machine-failures-detection') for project details!
-    """
-    )
 
 
 
