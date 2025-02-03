@@ -88,7 +88,7 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
   docker build -t artifact_registry_repo_url/<api_image_name>:version .
   docker push artifact_registry_repo_url/<api_image_name>:version
   ```
-- After the docker image has been pushed, go to [Cloud Run and choose Deploy Service](https://cloud.google.com/artifact-registry/docs/integrate-cloud-run) or check out this [tutorial](https://www.youtube.com/watch?v=cw34KMPSt4k&t=270s).
+- After the docker image has been pushed, go to Cloud Run and choose [Deploy Service](https://cloud.google.com/artifact-registry/docs/integrate-cloud-run), or check out this video [tutorial](https://www.youtube.com/watch?v=cw34KMPSt4k&t=270s) for more process documentations.
 - Copy the Cloud Run deployed-API url, add `/predict` endpoint, and test the API using `curl` or using below Python script:
   ```python
   import requests
@@ -109,3 +109,9 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
   ```
 
 ### **3. Build A Web App Using Streamlit to Demonstrate the Deployed API**
+- Save the API url to [`.streamlit/secrets.toml`](https://docs.streamlit.io/develop/concepts/connections/secrets-management) for storing url during development process.
+- Add `.streamlit/secrets.toml` to `.gitignore`.
+- Create [the streamlit app](https://github.com/mohammad-agus/machine-failures-detection/blob/master/streamlit_app.py).
+- Access the API url using [`streamlit.secrets` dict](https://docs.streamlit.io/develop/concepts/connections/secrets-management).
+- Deploy the streamlit app to [Community Cloud app](https://share.streamlit.io/)(optional).
+- Once the app has deployed in Streamlit Community Cloud App, add the API url to [Advanced Settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) at [the user community cloud workspace](https://share.streamlit.io/).
