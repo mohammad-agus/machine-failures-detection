@@ -44,15 +44,26 @@ This project demonstrates an end-to-end machine learning workflow, from data pre
 
 ## **API Development and Deployment**
 
-### **1. Building the API**
-- Use Flask to create an API with a `/predict` endpoint.
-- Test the API locally.
+### **1. Building & Containerizing the API**
+- Build the API using `Flask` & `gunicorn` with a `/predict` endpoint and port `9696`.
+- Test the API locally:
+  ```bash
+  gunicorn --bind 0.0.0.0:9696 predict:app
+  ```
+- Create a Dockerfile and pyproject.toml for dependecy management
+- Build the Docker image of the API
+  ```bash
+  docker build -t <api-image-name> .
+  ```
+- Test run the Docker image locally
+  ```bash
+  docker run -it -p 9696:9696 <api-image-name>
+  ```
+> [!Tip]
+> - `cd` to [machine-failures-detection-service](https://github.com/mohammad-agus/machine-failures-detection/tree/master/machine-failures-detection-service) for complete API code and Dockerfile.
+> - Check out this [course](https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/master/05-deployment) for building an API using Flask and containerization.
 
-### **2. Containerization**
-- Package the API into a Docker container for consistent deployment.
-- Test the container locally to ensure it works as expected.
-
-### **3. Deploy to GCP**
+### **2. Deploy to GCP**
 1. **Push Docker Image to Artifact Registry**:
    - Authenticate Docker to GCP:
      ```bash
