@@ -71,7 +71,7 @@ def main():
             - **LinkedIn** : [in/moh-agus](https://www.linkedin.com/in/moh-agus/)
             - **Github** : [mohammad-agus](https://github.com/mohammad-agus)
 
-            Go to the [github repository]('https://github.com/mohammad-agus/machine-failures-detection') for project details!
+            Go to the [github repository](https://github.com/mohammad-agus/machine-failures-detection) for project details!
             """
             )
 
