@@ -9,7 +9,7 @@ sample = {
     'tool_wear_min': 194
 }
 
-url = 'http://13.213.36.78/predict'
+url = 'http://13.215.200.18/predict'
 response = requests.post(url=url, json=sample).json()
 
 print(response)
