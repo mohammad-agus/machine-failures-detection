@@ -132,6 +132,7 @@ This project demonstrates a machine learning workflow, from data preparation and
   ```
 - Deploy the streamlit app to [Community Cloud app](https://share.streamlit.io/)(optional).
 - Once the app has deployed in Streamlit Community Cloud App, add the API url to [Advanced Settings](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management) at [the user community cloud workspace](https://share.streamlit.io/) to safely storing the API url.
+> As you read this note, I have modified the Streamlit app code to save and host the model within the project's repository since my GCP free trial has ended.
 
 
 ## **Contact**
